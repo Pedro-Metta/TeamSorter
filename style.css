@@ -1,0 +1,67 @@
+body{
+    background-color: rgb(0, 0, 0);
+    font: normal 15pt Arial;
+}
+
+
+header{
+    color: white;
+    text-align: center;
+}
+
+
+section{
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 2px 2px 10px black;
+}
+
+
+select{
+    width: 150px;
+    
+}
+#divList{
+    text-align: center;
+}
+
+#res{
+    text-align: center;
+}
+
+#btn-add{
+    background-color: rgb(240, 237, 100);
+    border-radius: 10px;
+    width: 100px;
+}
+
+#btn-sort{
+    background-color: rgb(153, 255, 0);
+    border-radius: 10px;
+    min-width: 100px;
+    width: fit-content;
+}
+
+#btn-limpar{
+    background-color: rgba(55, 0, 255, 0.877);
+    border-radius: 10px;
+    width: 100px;
+    color: white;
+}
+
+.pfooter{
+    font-size: 10pt;
+}
+
+footer{
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+
+h1{
+    font-family: Comic Sans MS;    
+}
