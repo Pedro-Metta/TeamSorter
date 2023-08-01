@@ -28,28 +28,42 @@ select{
     text-align: center;
 }
 
+#listaSelect{
+    text-align: center;
+}
+
 #res{
     text-align: center;
 }
 
-#btn-add{
+.btn-add{
     background-color: rgb(240, 237, 100);
     border-radius: 10px;
     width: 100px;
 }
 
-#btn-sort{
+.btn-sort{
     background-color: rgb(153, 255, 0);
     border-radius: 10px;
     min-width: 100px;
     width: fit-content;
 }
 
-#btn-limpar{
+.btn-limpar{
     background-color: rgba(55, 0, 255, 0.877);
     border-radius: 10px;
     width: 100px;
     color: white;
+}
+
+.btn-equilibrio{
+    background-color: rgba(255, 0, 0, 0.877);
+    border-radius: 10px;
+}
+
+.btn-copy{
+    background-color: rgba(255, 136, 0, 0.986);
+    border-radius: 10px; 
 }
 
 .pfooter{

@@ -10,16 +10,16 @@
 </head>
     <body>
         <header> <!-- Inicio do Cabeçalho -->
-            <h1>Sorteio 5x5 Damassa</h1>
+            <h1>Sorteio 5x5 LoL</h1>
         </header> <!-- Final do Cabeçalho -->
 
         <section><!-- Inicio do Section -->
             <div id="divList">
-                Adicione um criminoso: 
+                Adicione um jogador: 
                 <input type="text" id="eplayer">
                 <button 
                 type="submit" 
-                id="btn-add"
+                class="btn-add"
                 value="adicionar" 
                 onclick="adicionar()">Adicionar</button>
                
@@ -28,7 +28,7 @@
                 <br><select id="elista" size="10"></select><br>
                 <input
                 type="button"
-                id="equilibrio"
+                class="btn-equilibrio"
                 value="Equilibrar Times"
                 onclick="equilibrarTime()"><br>
                 <div id="options"></div>
@@ -38,12 +38,12 @@
                 
                 <br><input 
                 type="button"
-                id="btn-sort" 
+                class="btn-sort" 
                 value="Sortear" 
                 onclick="sortear()">
                 <input 
                 type="button"
-                id="btn-limpar"
+                class="btn-limpar"
                 value="Novos times"
                 onclick="limpar()">
             </div>
@@ -56,7 +56,6 @@
 
         <footer><!-- Incio do Rodapé -->
             <p class="pfooter">&copy; PMetta</p>
-            <p class="pfooter">Version 0.5.2</p>
         </footer><!-- Final do Rodapé -->
 
         <script src="script.js"></script>

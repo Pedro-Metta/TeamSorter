@@ -2,8 +2,9 @@ let player = document.getElementById('eplayer')
 let lista = document.getElementById('elista')
 let res = document.getElementById('res')
 let optionsSelect = document.getElementById('listaSelect')
+let inputPlayers = document.getElementById('eplayer')
 let valores = []
-const sort = document.getElementById("btn-sort")
+const sort = document.querySelector(".btn-sort")
 let strg = ''
 let eqlTeam = false
 let timeF1 = []
@@ -28,6 +29,11 @@ function inLista(n, l){
 //     }
 // }
 
+inputPlayers.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      adicionar()
+    }
+  });
 // Função para adicionar
 function adicionar(){
     if(player.value == ''|| !player.value.trim()){   //Verifica se há um nome inserido
@@ -54,7 +60,7 @@ function adicionar(){
 
 
 function equilibrarTime() {
-    strg += `Selecione 2 bots para jogarem em times separados na mesma lane: <br>`
+    strg += `Selecione até 4 bagres para jogarem em times separados na mesma lane: <br>`
     if(eqlTeam === false) {
         eqlTeam = true
     }
@@ -71,14 +77,16 @@ function equilibrarTime() {
 }
 
 function limpar(){  //Limpa os campos da lista e dos times para gerar novos times
-    
-    valores.length = 0
-    document.getElementById('elista').innerText = null;
-    document.getElementById('res').innerText = null;
-    document.getElementById('optionsSelect').innerText = null;
-    player.value = ''
-    player.focus()
-    sort.value = 'Sortear'
+    if (eqlTeam === true) {
+        window.location.reload(true);
+    } else { 
+        valores.length = 0
+        document.getElementById('elista').innerText = null;
+        document.getElementById('res').innerText = null;
+        player.value = ''
+        player.focus()
+        sort.value = 'Sortear'
+    }
 
 }
 
@@ -152,8 +160,8 @@ function sortear(l){
             sort.value = 'Sortear Novamente'
         } 
         // verifica se a tamanho da lista esta correto
-        if (valores.length % 2 != 0) {
-            alert('Insira mais 1 player')
+        if (valores.length < 10 || valores.length > 10) {
+            alert('Insira 10 players!')
             // console.error('Insira mais 1 player!');
         } else{
             let currentIndex = valores.length, randomIndex;
@@ -214,13 +222,30 @@ function printTeams(){
     ADC ${timeF2[3]}<br>
     SUP ${timeF2[4]}<br> `
     res.innerHTML += `--------------------<br>`
+
+    res.innerHTML += `<button onclick="copyToClipBoard()" class="btn-copy">Copy Teams</button>`
     //Procurar saber como fazer a posição do vetor dos times imprimir em cada role a posição no vetor
 }
 
-const button = document.getElementById("btn-add");
+function copyToClipBoard() {
+    let strgToCopy = ''
+    strgToCopy = `
+    \u{2B07}TIME 1\u{2B07}
+    TOP ${timeF1[0]}
+    JG  ${timeF1[1]}
+    MID ${timeF1[2]}
+    ADC ${timeF1[3]}
+    SUP ${timeF1[4]}
+    -----------------
+    \u{2B07}TIME 2\u{2B07}
+    TOP ${timeF2[0]}
+    JG  ${timeF2[1]}
+    MID ${timeF2[2]}
+    ADC ${timeF2[3]}
+    SUP ${timeF2[4]}`
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    button.click();
-  }
-});
+    navigator.clipboard.writeText(strgToCopy);
+
+}
+
+
